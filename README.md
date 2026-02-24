@@ -1,5 +1,9 @@
 # AI Automation Lab
 
+**Live Demo:** [Click here to try the AI Lead Qualification System](https://ashariftikhar.github.io/ai-automation-lab/)
+
+# AI Automation Lab
+
 A structured research and development environment for building scalable AI-powered automation systems.
 
 ---
