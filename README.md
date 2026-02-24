@@ -1,25 +1,48 @@
 # AI Automation Lab
 
-A structured environment for building and testing AI-powered automation systems.
+A structured research and development environment for building scalable AI-powered automation systems.
 
 ---
 
-## 🎯 Focus Areas
+## 🎯 Mission
+
+To design automation systems that:
+- Reduce manual processes
+- Improve operational efficiency
+- Integrate seamlessly with web platforms
+- Support revenue-generating digital assets
+
+---
+
+## 🏗 Lab Structure
+
+### 📂 experiments/
+Rapid testing of AI ideas and prototypes.
+
+### 📂 workflows/
+Structured multi-step automation systems.
+
+### 📂 prompts/
+Reusable prompt engineering frameworks.
+
+### 📂 tools/
+Utility scripts and integration helpers.
+
+### 📂 docs/
+Architecture notes and automation blueprints.
+
+---
+
+## 🧠 Focus Areas
 
 - OpenAI API integrations
+- Prompt system design
 - Workflow automation logic
-- Business process automation
-- Prompt engineering systems
-- AI-assisted productivity tools
+- API-based system integrations
+- AI-enhanced productivity tools
 
 ---
 
-## 📌 Objective
+## 🚀 Current Phase
 
-To design automation systems that reduce manual effort and increase scalability.
-
----
-
-## 🚀 Status
-
-Research & experimentation phase.
+Foundation architecture & experimentation.
