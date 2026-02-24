@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Lead Qualification Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<div class="container">
+    <h1>AI Lead Qualification System</h1>
+    <p class="subtitle">Smart evaluation for high-intent leads</p>
+
+    <form id="leadForm">
+        <input type="number" id="budget" placeholder="Estimated Budget ($)" required>
+
+        <select id="urgency">
+            <option value="">Project Urgency</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+
+        <select id="clarity">
+            <option value="">Project Clarity</option>
+            <option value="vague">Vague</option>
+            <option value="moderate">Moderate</option>
+            <option value="clear">Clear</option>
+        </select>
+
+        <select id="industry">
+            <option value="">Industry Fit</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+
+        <button type="submit">Evaluate Lead</button>
+    </form>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
