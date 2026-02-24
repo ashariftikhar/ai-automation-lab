@@ -2,44 +2,174 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AI Lead Qualification Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashar Iftikhar • AI Lead Scoring</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Simple gradient background -->
+    <div class="bg-gradient"></div>
+    
+    <div class="app">
+        <!-- Header with name -->
+        <div class="header">
+            <div class="logo">
+                <span class="logo-text">ASHAR IFTIKHAR</span>
+                <span class="logo-badge">AI Lead Scoring</span>
+            </div>
+            <div class="header-right">
+                <span class="version">v2.0</span>
+                <span class="status">● Live</span>
+            </div>
+        </div>
 
-<div class="container">
-    <h1>AI Lead Qualification System</h1>
-    <p class="subtitle">Smart evaluation for high-intent leads</p>
+        <!-- Main content -->
+        <div class="main-content">
+            <!-- Left column - Form -->
+            <div class="form-section">
+                <div class="section-title">
+                    <h2>Lead Qualification</h2>
+                    <p>Enter lead details for AI analysis</p>
+                </div>
 
-    <form id="leadForm">
-        <input type="number" id="budget" placeholder="Estimated Budget ($)" required>
+                <form id="leadForm" class="lead-form">
+                    <!-- Budget -->
+                    <div class="form-group">
+                        <label for="budget">
+                            <i class="far fa-credit-card"></i>
+                            Budget (USD)
+                        </label>
+                        <input type="number" id="budget" class="form-input" placeholder="e.g., 5000" required>
+                        <div class="input-hint">Min: $1,000 | Max: $1M+</div>
+                    </div>
 
-        <select id="urgency">
-            <option value="">Project Urgency</option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-        </select>
+                    <!-- Urgency -->
+                    <div class="form-group">
+                        <label for="urgency">
+                            <i class="far fa-clock"></i>
+                            Urgency
+                        </label>
+                        <div class="select-wrapper">
+                            <select id="urgency" class="form-select" required>
+                                <option value="" disabled selected>Select timeline</option>
+                                <option value="low">Low - 6+ months</option>
+                                <option value="medium">Medium - 3 months</option>
+                                <option value="high">High - 1 month</option>
+                                <option value="critical">Critical - ASAP</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
 
-        <select id="clarity">
-            <option value="">Project Clarity</option>
-            <option value="vague">Vague</option>
-            <option value="moderate">Moderate</option>
-            <option value="clear">Clear</option>
-        </select>
+                    <!-- Clarity -->
+                    <div class="form-group">
+                        <label for="clarity">
+                            <i class="far fa-file-alt"></i>
+                            Project Clarity
+                        </label>
+                        <div class="select-wrapper">
+                            <select id="clarity" class="form-select" required>
+                                <option value="" disabled selected>Select clarity level</option>
+                                <option value="vague">Vague - Need discovery</option>
+                                <option value="moderate">Moderate - Partial specs</option>
+                                <option value="clear">Clear - Detailed specs</option>
+                                <option value="crystal">Crystal - Complete docs</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
 
-        <select id="industry">
-            <option value="">Industry Fit</option>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-        </select>
+                    <!-- Industry -->
+                    <div class="form-group">
+                        <label for="industry">
+                            <i class="far fa-building"></i>
+                            Industry Fit
+                        </label>
+                        <div class="select-wrapper">
+                            <select id="industry" class="form-select" required>
+                                <option value="" disabled selected>Select fit level</option>
+                                <option value="perfect">Perfect Match</option>
+                                <option value="true">Good Fit</option>
+                                <option value="partial">Partial Fit</option>
+                                <option value="false">Different Industry</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
 
-        <button type="submit">Evaluate Lead</button>
-    </form>
+                    <!-- Submit button -->
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span>Analyze Lead</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
 
-    <div class="result" id="result"></div>
-</div>
+            <!-- Right column - Results -->
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <h3>Analysis Results</h3>
+                    <span class="result-time" id="resultTime">Just now</span>
+                </div>
 
-<script src="script.js"></script>
+                <!-- Score card -->
+                <div class="score-card">
+                    <div class="score-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="score-bg" cx="60" cy="60" r="54" fill="none" stroke="#e9ecef" stroke-width="4"/>
+                            <circle class="score-fill" cx="60" cy="60" r="54" fill="none" stroke="#0066ff" stroke-width="4" stroke-linecap="round" stroke-dasharray="339.292" stroke-dashoffset="339.292" transform="rotate(-90 60 60)"/>
+                        </svg>
+                        <div class="score-number" id="scoreNumber">0</div>
+                    </div>
+                    <div class="score-info">
+                        <div class="score-label">Lead Score</div>
+                        <div class="score-category" id="scoreCategory">-</div>
+                    </div>
+                </div>
+
+                <!-- Classification -->
+                <div class="classification-card" id="classificationCard">
+                    <div class="class-badge" id="classBadge">Hot Lead</div>
+                    <div class="class-confidence" id="classConfidence">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>98% Confidence</span>
+                    </div>
+                </div>
+
+                <!-- Insights -->
+                <div class="insights-card">
+                    <div class="insights-title">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Key Insights</span>
+                    </div>
+                    <div class="insights-list" id="insightsList">
+                        <!-- Insights will appear here -->
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="action-buttons">
+                    <button class="action-btn primary" id="scheduleBtn">
+                        <i class="fas fa-calendar"></i>
+                        Schedule Call
+                    </button>
+                    <button class="action-btn secondary" id="exportBtn">
+                        <i class="fas fa-download"></i>
+                        Export
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Simple footer -->
+        <div class="footer">
+            <span>© 2026 Ashar Iftikhar • Neural Lead Scoring Engine</span>
+            <span>Enterprise Grade • Real-time AI</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
