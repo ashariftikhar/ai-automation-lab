@@ -1,0 +1,25 @@
+{
+  "name": "ai-automation-lab",
+  "version": "1.0.0",
+  "description": "Production-grade AI Lead Qualification & Intent Scoring Suite by Ashflow",
+  "main": "tools/lead-scoring-engine.js",
+  "scripts": {
+    "test": "node --test tests/lead-scoring.test.js",
+    "demo": "node tools/lead-scoring-engine.js --demo",
+    "start": "node workflows/crm-webhook-handler.js"
+  },
+  "keywords": [
+    "ai",
+    "lead-scoring",
+    "lead-qualification",
+    "automation",
+    "intent-scoring",
+    "crm-webhook",
+    "ashflow"
+  ],
+  "author": "Ashar Iftikhar <ashar@ashflow.site> (https://ashflow.site)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
